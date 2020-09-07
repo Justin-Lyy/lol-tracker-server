@@ -55,7 +55,7 @@ app.get('/history/:region/accId/:accountId', (req, res) => {
             res.send(response);
         })
         .catch(error => {
-            console.error(`Error while fetching the match history with id: ${req.params.accountId} from ${req.params.region}`)
+            console.error(`(${error.response ? error.response.status: 408 }) Error while fetching the match history with id: ${req.params.accountId} from ${req.params.region}`)
             res.status(error.response ? error.response.status: 408 )
             res.send(`Error while fetching the match history with id: ${req.params.accountId} from ${req.params.region}`)
         })
@@ -73,7 +73,7 @@ app.get('/match/:region/matchId/:matchId', (req, res) => {
             res.json(response);
         })
         .catch(error => {
-            console.error(`Error while fetching the match details of match id: ${req.params.matchId} from ${req.params.region}`)
+            console.error(`(${error.response ? error.response.status: 408 }) Error while fetching the match details of match id: ${req.params.matchId} from ${req.params.region}`)
             res.status(error.response ? error.response.status: 408 )
             res.send(`Error while fetching the match details of match id: ${req.params.matchId} from ${req.params.region}`)
         })
@@ -91,7 +91,7 @@ app.get('/rank/:region/summonerId/:summonerId', (req, res) => {
             res.json(response);
         })
         .catch(error => {
-            console.error(`Error while fetching the ranked stats of summoner id: ${req.params.summonerId} from ${req.params.region}`)
+            console.error(`(${error.response ? error.response.status: 408 }) Error while fetching the ranked stats of summoner id: ${req.params.summonerId} from ${req.params.region}`)
             res.status(error.response ? error.response.status: 408 )
             res.send(`Error while fetching the ranked stats of summoner id: ${req.params.summonerId} from ${req.params.region}`)
         })
