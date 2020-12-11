@@ -25,6 +25,21 @@ const options = {
     }
 }
 
+// app.use('/stats', express.static(__dirname + '/dist'))
+
+app.get('/stats', (req, res)=> {
+    res.sendFile(__dirname + '/dist/index.html')
+})
+
+app.get('/stats/script', (req, res)=> {
+    res.sendFile(__dirname + '/dist/main.js')
+})
+
+app.get('/:filename', (req, res)=> {
+    let filename = req.params.filename
+    res.sendFile(__dirname + `/dist/${filename}`)
+})
+
 app.get('/league/:region/:summoner', (req, res) => {
     let url = `https://${req.params.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.summoner}?api_key=${key}`
 
