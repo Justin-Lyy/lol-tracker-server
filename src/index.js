@@ -27,6 +27,10 @@ const options = {
 
 // app.use('/stats', express.static(__dirname + '/dist'))
 
+app.get('/', (req, res)=> {
+    res.redirect('/stats')
+})
+
 app.get('/stats', (req, res)=> {
     res.sendFile(__dirname + '/dist/index.html')
 })
