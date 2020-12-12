@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const fs = require('fs');
 require('dotenv').config();
 
 const app = express();
@@ -13,7 +14,6 @@ app.options('/', cors());
 const PORT = process.env.PORT || 8888;
 
 const key = process.env.RIOT_API_KEY;
-console.log(key)
 
 const options = {
     header: {
@@ -25,7 +25,7 @@ const options = {
     }
 }
 
-// app.use('/stats', express.static(__dirname + '/dist'))
+// routes for static requests, html, and data
 
 app.get('/', (req, res)=> {
     res.redirect('/stats')
@@ -39,10 +39,25 @@ app.get('/stats/script', (req, res)=> {
     res.sendFile(__dirname + '/dist/main.js')
 })
 
-app.get('/:filename', (req, res)=> {
+app.get('/:request', (req, res)=> {
+    let request = req.params.request;
+
+    if (fs.existsSync(__dirname + `/dist/${request}`)) {
+        res.redirect(`/fileRequest/${request}`)
+    } else {
+        res.status(404)
+        res.send(`Error, couldn't find what you're looking for`)
+    }
+
+    return;
+})
+
+app.get('/fileRequest/:filename', (req, res)=> {
     let filename = req.params.filename
     res.sendFile(__dirname + `/dist/${filename}`)
-})
+});
+
+// requests for data
 
 app.get('/league/:region/:summoner', (req, res) => {
     let url = `https://${req.params.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.summoner}?api_key=${key}`
