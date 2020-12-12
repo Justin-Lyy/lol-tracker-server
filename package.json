@@ -1,7 +1,7 @@
 {
-  "name": "riot-webapp-server",
+  "name": "lol-tracker-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "web server to fetch and display match histories for League of Legends",
   "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "dev": "nodemon index"
   },
   "keywords": [],
-  "author": "",
+  "author": "Justin Ly",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.20.0",
