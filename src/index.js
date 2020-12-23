@@ -45,8 +45,7 @@ app.get('/:request', (req, res)=> {
     if (fs.existsSync(__dirname + `/dist/${request}`)) {
         res.redirect(`/fileRequest/${request}`)
     } else {
-        res.status(404)
-        res.send(`Error, couldn't find what you're looking for`)
+        next()
     }
 
     return;
@@ -129,6 +128,15 @@ app.get('/rank/:region/summonerId/:summonerId', (req, res) => {
             res.status(error.response ? error.response.status: 408 )
             res.send(`Error while fetching the ranked stats of summoner id: ${req.params.summonerId} from ${req.params.region}`)
         })
+})
+
+app.use((req, res, next) => {
+    next(createError(404));
+  });
+
+app.use((err, req, res, next)=> {
+    res.status(404)
+    res.redirect('/stats')
 })
 
 app.listen(PORT, ()=> console.log(`server started on port ${PORT}`))
