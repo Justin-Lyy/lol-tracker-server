@@ -24,13 +24,13 @@ the site at a production level scale.
 #### Local Installation:
 1. Download the repository
 2. Install [NodeJS](https://nodejs.org/en/ "Install NodeJS") if not done so already
-2. Run `npm install`
-3. Created a file in the top level directory called `.env`
-4. Get a developer API Key from [Riot](https://developer.riotgames.com/ "Riot Dev API")
-5. In the .env file place the following: `RIOT_API_KEY=YOUR_API_KEY`
-6. You can specify a port number like so: `PORT=PORT_NUMBER`
-7. Save the file
-8. Run `npm start`
+3. Run `npm install`
+4. Created a file in the top level directory called `.env`
+5. Get a developer API Key from [Riot](https://developer.riotgames.com/ "Riot Dev API")
+6. In the .env file place the following: `RIOT_API_KEY=YOUR_API_KEY`
+7. You can specify a port number like so: `PORT=PORT_NUMBER`
+8. Save the file
+9. Run `npm start`
 
 ### Heroku Deployed version 
 There is a version of LOL-Tracker deployed on [Heroku](https://lol-stat-tracker-project.herokuapp.com/ "LOL Tracker")
