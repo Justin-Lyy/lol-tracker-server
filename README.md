@@ -4,7 +4,7 @@ ExpressJS server to be used with the LOL Tracker front-end.
 ### Introduction
 This server fetches data from the Riot-Dev api and is meant to be used in conjunction with [front-end](https://github.com/Justin-Lyy/lol-tracker "LOL Tracker")
 
-However, since the front-end requires the deployed version on Heroku to be active, the server cannot be run locally without making changes to the front-end repositry. 
+However, since the front-end requires the deployed version on Heroku to be active, the server cannot be run locally without making changes to the front-end repository. 
 Unfortunately, I cannot run the deployed version 24/7 since I don't possess a production key from Riot Games. Furthermore, my dyno plan on Heroku doesn't allow me to use 
 the site at a production level scale.
 
